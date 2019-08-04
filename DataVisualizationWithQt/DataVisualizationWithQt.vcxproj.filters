@@ -42,9 +42,18 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\gui\aboutdialog.cpp">
+      <Filter>Source Files\gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="include\gui\mainwnd.h">
+      <Filter>Header Files\gui</Filter>
+    </QtMoc>
+    <QtMoc Include="include\gui\scatter_chart.hpp">
+      <Filter>Header Files\gui</Filter>
+    </QtMoc>
+    <QtMoc Include="include\gui\aboutdialog.h">
       <Filter>Header Files\gui</Filter>
     </QtMoc>
   </ItemGroup>
@@ -57,5 +66,16 @@
     <QtUic Include="forms\mainwnd.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="forms\aboutdialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GeneratedFiles\ui_mainwnd.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_aboutdialog.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
