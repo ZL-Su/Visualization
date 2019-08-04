@@ -2,9 +2,11 @@
 
 #include <QtWidgets/QMainWindow>
 #include <ui_mainwnd.h>
-#include <gui/scatter_chart.hpp>
 
 class AboutDialog;
+namespace vis {
+	class ChartView;
+}
 
 class MainWnd : public QMainWindow
 {
@@ -13,11 +15,11 @@ class MainWnd : public QMainWindow
 public:
 	MainWnd(QWidget *parent = Q_NULLPTR);
 
-	vis::ChartView* create_scatter_view();
+	QWidget* create_scatter_view();
 
 private:
 	Ui::MainWndClass ui;
 	AboutDialog* m_about;
 
-	vis::ChartView* m_scatfig;
+	vis::ChartView* m_chartview;
 };
