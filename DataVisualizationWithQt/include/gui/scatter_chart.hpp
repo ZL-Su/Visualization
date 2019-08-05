@@ -54,17 +54,19 @@ namespace vis {
 		}
 
 		inline void draw() {
+			this->show();
+
 			auto series0 = make_scatter_series();
 			series0->setName("Point 1");
 			series0->setMarkerShape(QtCharts::QScatterSeries::MarkerShape::MarkerShapeCircle);
 
 			auto series1 = make_scatter_series();
 			series1->setName("Point 2");
-			series1->setMarkerShape(QtCharts::QScatterSeries::MarkerShape::MarkerShapeRectangle);
+			series1->setMarkerShape(QtCharts::QScatterSeries::MarkerShapeRectangle);
 
 			auto series2 = make_scatter_series();
 			series2->setName("Point 3");
-			series2->setMarkerShape(QtCharts::QScatterSeries::MarkerShape::MarkerShapeRectangle);
+			series2->setMarkerShape(QtCharts::QScatterSeries::MarkerShapeRectangle);
 
 			series0->append(0, 6), series0->append(2, 4), series0->append(3, 8);
 			*series1 << QPointF(1, 1) << QPointF(3, 3) << QPointF(7, 6);

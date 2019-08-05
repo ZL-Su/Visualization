@@ -7,7 +7,9 @@ class AboutDialog;
 namespace vis {
 	class ChartView;
 }
-
+/*
+ * \brief: main window class
+ */
 class MainWnd : public QMainWindow
 {
 	Q_OBJECT
@@ -15,11 +17,12 @@ class MainWnd : public QMainWindow
 public:
 	MainWnd(QWidget *parent = Q_NULLPTR);
 
-	QWidget* create_scatter_view();
+	void back_to_home();
+	void draw_scatter_fig();
 
 private:
 	Ui::MainWndClass ui;
-	AboutDialog* m_about;
-
-	vis::ChartView* m_chartview;
+	AboutDialog* m_about = nullptr;
+	QWidget* m_startwidget;
+	vis::ChartView* m_chartview = nullptr;
 };

@@ -13,11 +13,18 @@
 #include <QtGui/QIcon>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -28,7 +35,26 @@ public:
     QAction *actionScatter;
     QAction *actionExit;
     QAction *actionAbout;
+    QAction *actionOpen;
     QWidget *centralWidget;
+    QGridLayout *gridLayout;
+    QSpacerItem *verticalSpacer;
+    QSpacerItem *horizontalSpacer;
+    QVBoxLayout *verticalLayout;
+    QLabel *label;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label_StartOpenIcon;
+    QPushButton *pbHomeOpen;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label_StartLearnIcon;
+    QPushButton *pbHomeLearn;
+    QSpacerItem *verticalSpacer_3;
+    QSpacerItem *horizontalSpacer_2;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *label_2;
+    QListWidget *lwRecentfiles;
+    QSpacerItem *horizontalSpacer_3;
+    QSpacerItem *verticalSpacer_2;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuDraw;
@@ -47,6 +73,8 @@ public:
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/MainWnd/ivm.ico"), QSize(), QIcon::Normal, QIcon::Off);
         MainWndClass->setWindowIcon(icon);
+        MainWndClass->setDockOptions(QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks);
+        MainWndClass->setUnifiedTitleAndToolBarOnMac(false);
         actionScatter = new QAction(MainWndClass);
         actionScatter->setObjectName(QString::fromUtf8("actionScatter"));
         actionExit = new QAction(MainWndClass);
@@ -56,8 +84,113 @@ public:
         actionExit->setIcon(icon1);
         actionAbout = new QAction(MainWndClass);
         actionAbout->setObjectName(QString::fromUtf8("actionAbout"));
+        actionOpen = new QAction(MainWndClass);
+        actionOpen->setObjectName(QString::fromUtf8("actionOpen"));
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/MainWnd/open.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionOpen->setIcon(icon2);
         centralWidget = new QWidget(MainWndClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        gridLayout = new QGridLayout(centralWidget);
+        gridLayout->setSpacing(6);
+        gridLayout->setContentsMargins(11, 11, 11, 11);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        verticalSpacer = new QSpacerItem(20, 46, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer, 0, 1, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(60, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer, 1, 0, 1, 1);
+
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setSpacing(6);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        label = new QLabel(centralWidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        QFont font1;
+        font1.setPointSize(11);
+        font1.setBold(true);
+        font1.setWeight(75);
+        label->setFont(font1);
+
+        verticalLayout->addWidget(label);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        label_StartOpenIcon = new QLabel(centralWidget);
+        label_StartOpenIcon->setObjectName(QString::fromUtf8("label_StartOpenIcon"));
+        label_StartOpenIcon->setMinimumSize(QSize(25, 25));
+        label_StartOpenIcon->setMaximumSize(QSize(25, 25));
+        label_StartOpenIcon->setPixmap(QPixmap(QString::fromUtf8(":/MainWnd/open.png")));
+        label_StartOpenIcon->setScaledContents(true);
+
+        horizontalLayout->addWidget(label_StartOpenIcon);
+
+        pbHomeOpen = new QPushButton(centralWidget);
+        pbHomeOpen->setObjectName(QString::fromUtf8("pbHomeOpen"));
+
+        horizontalLayout->addWidget(pbHomeOpen);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        label_StartLearnIcon = new QLabel(centralWidget);
+        label_StartLearnIcon->setObjectName(QString::fromUtf8("label_StartLearnIcon"));
+        label_StartLearnIcon->setMinimumSize(QSize(25, 25));
+        label_StartLearnIcon->setMaximumSize(QSize(25, 25));
+        label_StartLearnIcon->setPixmap(QPixmap(QString::fromUtf8("../../../../../../Dgelo/Pictures/MyIcons/learn.PNG")));
+
+        horizontalLayout_2->addWidget(label_StartLearnIcon);
+
+        pbHomeLearn = new QPushButton(centralWidget);
+        pbHomeLearn->setObjectName(QString::fromUtf8("pbHomeLearn"));
+
+        horizontalLayout_2->addWidget(pbHomeLearn);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
+
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_3);
+
+
+        gridLayout->addLayout(verticalLayout, 1, 1, 1, 1);
+
+        horizontalSpacer_2 = new QSpacerItem(61, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_2, 1, 2, 1, 1);
+
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        label_2 = new QLabel(centralWidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setFont(font1);
+
+        verticalLayout_2->addWidget(label_2);
+
+        lwRecentfiles = new QListWidget(centralWidget);
+        lwRecentfiles->setObjectName(QString::fromUtf8("lwRecentfiles"));
+
+        verticalLayout_2->addWidget(lwRecentfiles);
+
+
+        gridLayout->addLayout(verticalLayout_2, 1, 3, 1, 1);
+
+        horizontalSpacer_3 = new QSpacerItem(60, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_3, 1, 4, 1, 1);
+
+        verticalSpacer_2 = new QSpacerItem(20, 45, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer_2, 2, 1, 1, 1);
+
         MainWndClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWndClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -79,6 +212,7 @@ public:
         menuBar->addAction(menuFile->menuAction());
         menuBar->addAction(menuDraw->menuAction());
         menuBar->addAction(menuHelp->menuAction());
+        menuFile->addAction(actionOpen);
         menuFile->addSeparator();
         menuFile->addAction(actionExit);
         menuDraw->addAction(actionScatter);
@@ -95,6 +229,13 @@ public:
         actionScatter->setText(QCoreApplication::translate("MainWndClass", "Scatter", nullptr));
         actionExit->setText(QCoreApplication::translate("MainWndClass", "Exit", nullptr));
         actionAbout->setText(QCoreApplication::translate("MainWndClass", "About", nullptr));
+        actionOpen->setText(QCoreApplication::translate("MainWndClass", "Open", nullptr));
+        label->setText(QCoreApplication::translate("MainWndClass", "Get started", nullptr));
+        label_StartOpenIcon->setText(QString());
+        pbHomeOpen->setText(QCoreApplication::translate("MainWndClass", "Open files...", nullptr));
+        label_StartLearnIcon->setText(QString());
+        pbHomeLearn->setText(QCoreApplication::translate("MainWndClass", "Learn...", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWndClass", "Recent files", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWndClass", "File", nullptr));
         menuDraw->setTitle(QCoreApplication::translate("MainWndClass", "Draw", nullptr));
         menuHelp->setTitle(QCoreApplication::translate("MainWndClass", "Help", nullptr));

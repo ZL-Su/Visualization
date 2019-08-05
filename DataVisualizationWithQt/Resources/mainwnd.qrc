@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/MainWnd">
+    <file>open.png</file>
     <file>esc1.png</file>
     <file>ivm.ico</file>
   </qresource>
