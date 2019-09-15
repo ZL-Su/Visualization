@@ -44,15 +44,15 @@ public:
     QLabel *label;
     QHBoxLayout *horizontalLayout;
     QLabel *label_StartOpenIcon;
-    QPushButton *pbHomeOpen;
+    QPushButton *pbtnStartOpen;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_StartLearnIcon;
-    QPushButton *pbHomeLearn;
+    QPushButton *pbtnStartLearn;
     QSpacerItem *verticalSpacer_3;
     QSpacerItem *horizontalSpacer_2;
     QVBoxLayout *verticalLayout_2;
     QLabel *label_2;
-    QListWidget *lwRecentfiles;
+    QListWidget *lwdgRecentfiles;
     QSpacerItem *horizontalSpacer_3;
     QSpacerItem *verticalSpacer_2;
     QMenuBar *menuBar;
@@ -91,6 +91,8 @@ public:
         actionOpen->setIcon(icon2);
         centralWidget = new QWidget(MainWndClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        centralWidget->setAutoFillBackground(false);
+        centralWidget->setStyleSheet(QString::fromUtf8(""));
         gridLayout = new QGridLayout(centralWidget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
@@ -128,10 +130,12 @@ public:
 
         horizontalLayout->addWidget(label_StartOpenIcon);
 
-        pbHomeOpen = new QPushButton(centralWidget);
-        pbHomeOpen->setObjectName(QString::fromUtf8("pbHomeOpen"));
+        pbtnStartOpen = new QPushButton(centralWidget);
+        pbtnStartOpen->setObjectName(QString::fromUtf8("pbtnStartOpen"));
+        pbtnStartOpen->setAutoDefault(false);
+        pbtnStartOpen->setFlat(false);
 
-        horizontalLayout->addWidget(pbHomeOpen);
+        horizontalLayout->addWidget(pbtnStartOpen);
 
 
         verticalLayout->addLayout(horizontalLayout);
@@ -147,10 +151,12 @@ public:
 
         horizontalLayout_2->addWidget(label_StartLearnIcon);
 
-        pbHomeLearn = new QPushButton(centralWidget);
-        pbHomeLearn->setObjectName(QString::fromUtf8("pbHomeLearn"));
+        pbtnStartLearn = new QPushButton(centralWidget);
+        pbtnStartLearn->setObjectName(QString::fromUtf8("pbtnStartLearn"));
+        pbtnStartLearn->setAutoDefault(true);
+        pbtnStartLearn->setFlat(false);
 
-        horizontalLayout_2->addWidget(pbHomeLearn);
+        horizontalLayout_2->addWidget(pbtnStartLearn);
 
 
         verticalLayout->addLayout(horizontalLayout_2);
@@ -175,10 +181,11 @@ public:
 
         verticalLayout_2->addWidget(label_2);
 
-        lwRecentfiles = new QListWidget(centralWidget);
-        lwRecentfiles->setObjectName(QString::fromUtf8("lwRecentfiles"));
+        lwdgRecentfiles = new QListWidget(centralWidget);
+        lwdgRecentfiles->setObjectName(QString::fromUtf8("lwdgRecentfiles"));
+        lwdgRecentfiles->setFrameShadow(QFrame::Plain);
 
-        verticalLayout_2->addWidget(lwRecentfiles);
+        verticalLayout_2->addWidget(lwdgRecentfiles);
 
 
         gridLayout->addLayout(verticalLayout_2, 1, 3, 1, 1);
@@ -220,21 +227,24 @@ public:
 
         retranslateUi(MainWndClass);
 
+        pbtnStartOpen->setDefault(false);
+
+
         QMetaObject::connectSlotsByName(MainWndClass);
     } // setupUi
 
     void retranslateUi(QMainWindow *MainWndClass)
     {
-        MainWndClass->setWindowTitle(QCoreApplication::translate("MainWndClass", "Visualization", nullptr));
+        MainWndClass->setWindowTitle(QCoreApplication::translate("MainWndClass", "DPLab Visualization", nullptr));
         actionScatter->setText(QCoreApplication::translate("MainWndClass", "Scatter", nullptr));
         actionExit->setText(QCoreApplication::translate("MainWndClass", "Exit", nullptr));
         actionAbout->setText(QCoreApplication::translate("MainWndClass", "About", nullptr));
         actionOpen->setText(QCoreApplication::translate("MainWndClass", "Open", nullptr));
         label->setText(QCoreApplication::translate("MainWndClass", "Get started", nullptr));
         label_StartOpenIcon->setText(QString());
-        pbHomeOpen->setText(QCoreApplication::translate("MainWndClass", "Open files...", nullptr));
+        pbtnStartOpen->setText(QCoreApplication::translate("MainWndClass", "Open files...", nullptr));
         label_StartLearnIcon->setText(QString());
-        pbHomeLearn->setText(QCoreApplication::translate("MainWndClass", "Learn...", nullptr));
+        pbtnStartLearn->setText(QCoreApplication::translate("MainWndClass", "Learn...", nullptr));
         label_2->setText(QCoreApplication::translate("MainWndClass", "Recent files", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWndClass", "File", nullptr));
         menuDraw->setTitle(QCoreApplication::translate("MainWndClass", "Draw", nullptr));

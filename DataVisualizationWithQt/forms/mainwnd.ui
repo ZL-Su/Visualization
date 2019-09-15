@@ -16,7 +16,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Visualization</string>
+   <string>DPLab Visualization</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../Resources/mainwnd.qrc">
@@ -29,6 +29,12 @@
    <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="1">
      <spacer name="verticalSpacer">
@@ -100,9 +106,18 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pbHomeOpen">
+         <widget class="QPushButton" name="pbtnStartOpen">
           <property name="text">
            <string>Open files...</string>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -133,9 +148,15 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pbHomeLearn">
+         <widget class="QPushButton" name="pbtnStartLearn">
           <property name="text">
            <string>Learn...</string>
+          </property>
+          <property name="autoDefault">
+           <bool>true</bool>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -186,7 +207,11 @@
        </widget>
       </item>
       <item>
-       <widget class="QListWidget" name="lwRecentfiles"/>
+       <widget class="QListWidget" name="lwdgRecentfiles">
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>

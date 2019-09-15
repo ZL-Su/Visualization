@@ -34,6 +34,9 @@
     <Filter Include="Source Files\gui">
       <UniqueIdentifier>{fe7b48ba-2ef5-4e99-af76-06542c84688a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\utils">
+      <UniqueIdentifier>{4677f6da-d49d-46e1-8285-126fe8e5c440}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\gui\mainwnd.cpp">
@@ -76,6 +79,15 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_aboutdialog.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\configs.hpp">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\typedef.hpp">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils\type_traits.hpp">
+      <Filter>Header Files\utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

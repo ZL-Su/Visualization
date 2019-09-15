@@ -17,8 +17,10 @@ class MainWnd : public QMainWindow
 public:
 	MainWnd(QWidget *parent = Q_NULLPTR);
 
-	void back_to_home();
-	void draw_scatter_fig();
+	void open();
+	void learn();
+	void show_start();
+	void draw_scatter();
 
 private:
 	Ui::MainWndClass ui;
